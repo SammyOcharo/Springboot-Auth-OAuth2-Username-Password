@@ -36,19 +36,22 @@ cd Springboot-Auth-OAuth2-Username-Password
 Make sure you have MySQL installed and set up. Create a database for your project:
 
 sql
-Copy
-Edit
+
+```
 CREATE DATABASE customizedAuth;
+```
 Update your application.properties (or application.yml) file with the correct database credentials:
 
 properties
-Copy
-Edit
+```
 spring.datasource.url=jdbc:mysql://localhost:3306/customizedAuth?createDatabaseIfNotExist=true
 spring.datasource.username=<your-db-username>
 spring.datasource.password=<your-db-password>
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
+
+```
+
 ### 3. Set Up OAuth2.0 Credentials
 You need to create OAuth2 credentials for Google and GitHub to enable authentication via these providers.
 
@@ -57,8 +60,7 @@ Google: Visit Google Developers Console, create a new project, and set up OAuth2
 Once you have the credentials, add them to your application.properties file:
 
 properties
-Copy
-Edit
+```
 # GitHub OAuth2.0 Configuration
 spring.security.oauth2.client.registration.github.client-id=<your-github-client-id>
 spring.security.oauth2.client.registration.github.client-secret=<your-github-client-secret>
@@ -67,14 +69,16 @@ spring.security.oauth2.client.registration.github.client-secret=<your-github-cli
 spring.security.oauth2.client.registration.google.client-id=<your-google-client-id>
 spring.security.oauth2.client.registration.google.client-secret=<your-google-client-secret>
 spring.security.oauth2.client.registration.google.scope=profile,email
+```
+
 ### 4. Build and Run the Application
 To build and run the application, use Maven:
 
 bash
-Copy
-Edit
+```
 mvn clean install
 mvn spring-boot:run
+```
 By default, the application will run on http://localhost:8080.
 
 ### 5. Testing the Authentication
@@ -85,33 +89,7 @@ Once authenticated, a JWT token will be issued and can be used to access protect
 Project Structure
 Here’s a quick overview of the project structure:
 
-css
-Copy
-Edit
-Springboot-Auth-OAuth2-Username-Password
-│
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com
-│   │   │       └── samdev
-│   │   │           ├── customizedOauth20
-│   │   │           │   ├── Config
-│   │   │           │   ├── Entity
-│   │   │           │   ├── Repository
-│   │   │           │   ├── ServiceImpl
-│   │   │           │   └── Controller
-│   │   └── resources
-│   │       ├── application.properties
-│   │       └── static
-│   └── test
-│       └── java
-│           └── com
-│               └── samdev
-│                   └── customizedOauth20
-│                       └── Test
-├── pom.xml
-└── README.md
+
 Security Configurations
 Password Encoder: The project uses BCryptPasswordEncoder for securely hashing passwords.
 JWT Integration: JWT tokens are issued upon successful login and are used for authentication in subsequent requests.
@@ -119,8 +97,15 @@ OAuth2 Login: Supports both GitHub and Google as OAuth2.0 providers.
 Example Request
 To test the OAuth2.0 authentication, visit the following endpoints:
 
-GitHub OAuth2.0 Login: http://localhost:8080/oauth2/authorization/github
-Google OAuth2.0 Login: http://localhost:8080/oauth2/authorization/google
+GitHub OAuth2.0 Login: 
+```
+http://localhost:8080/oauth2/authorization/github
+```
+Google OAuth2.0 Login: 
+```
+http://localhost:8080/oauth2/authorization/google
+
+```
 After successful authentication, you will receive a JWT token that can be used to authenticate requests to secured endpoints.
 
 Conclusion
@@ -128,11 +113,3 @@ This project provides a comprehensive guide to implementing OAuth2.0 authenticat
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-yaml
-Copy
-Edit
-
----
-
-This README provides a clear and structured guide for others to understand and set up your project. Let me know if you'd like to add anything else!
