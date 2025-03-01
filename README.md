@@ -29,8 +29,10 @@ Clone this repository to your local machine:
 git clone https://github.com/your-username/Springboot-Auth-OAuth2-Username-Password.git
 cd Springboot-Auth-OAuth2-Username-Password
 
+```
 
-2. Set Up the Database
+
+### 2. Set Up the Database
 Make sure you have MySQL installed and set up. Create a database for your project:
 
 sql
@@ -47,7 +49,7 @@ spring.datasource.username=<your-db-username>
 spring.datasource.password=<your-db-password>
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
-3. Set Up OAuth2.0 Credentials
+### 3. Set Up OAuth2.0 Credentials
 You need to create OAuth2 credentials for Google and GitHub to enable authentication via these providers.
 
 GitHub: Go to the GitHub Developer settings and create a new OAuth application.
@@ -65,7 +67,7 @@ spring.security.oauth2.client.registration.github.client-secret=<your-github-cli
 spring.security.oauth2.client.registration.google.client-id=<your-google-client-id>
 spring.security.oauth2.client.registration.google.client-secret=<your-google-client-secret>
 spring.security.oauth2.client.registration.google.scope=profile,email
-4. Build and Run the Application
+### 4. Build and Run the Application
 To build and run the application, use Maven:
 
 bash
@@ -75,7 +77,7 @@ mvn clean install
 mvn spring-boot:run
 By default, the application will run on http://localhost:8080.
 
-5. Testing the Authentication
+### 5. Testing the Authentication
 Username/Password Login: Use the /login endpoint to authenticate using a username and password.
 OAuth2.0 Login: Use the /oauth2/authorization/github or /oauth2/authorization/google endpoints to authenticate using GitHub or Google.
 Once authenticated, a JWT token will be issued and can be used to access protected endpoints.
